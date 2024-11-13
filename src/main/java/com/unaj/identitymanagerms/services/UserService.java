@@ -4,6 +4,7 @@ import com.unaj.identitymanagerms.entities.Role;
 import com.unaj.identitymanagerms.entities.User;
 import com.unaj.identitymanagerms.repository.RoleRepository;
 import com.unaj.identitymanagerms.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -77,6 +78,7 @@ public class UserService implements IUserService, UserDetailsService {
         userRepository.deleteById(id);
     }
 
+    @Transactional
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user= userRepository.findByUsername(username).orElseGet(User::new);
