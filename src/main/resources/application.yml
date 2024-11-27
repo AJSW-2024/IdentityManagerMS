@@ -1,0 +1,19 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: identity-management
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ms_usuarios
+    username: root
+    password: 123456
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  sql:
+    init:
+      platform: mysql
